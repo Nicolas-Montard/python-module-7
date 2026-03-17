@@ -8,7 +8,7 @@ class CardFactory(ABC):
         ...
 
     @abstractmethod
-    def creature_spell(self, name_or_power: str | int | None = None) -> Card:
+    def create_spell(self, name_or_power: str | int | None = None) -> Card:
         ...
 
     @abstractmethod

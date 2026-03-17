@@ -11,13 +11,11 @@ class EliteCard(Card, Combatable, Magical):
                  health: int, mana: int, spells: list[SpellCard]) -> None:
         super().__init__(name, cost, rarity)
         self.attack_value = attack
-        self.health_value = health
+        self.health = health
         self.mana = mana
         self.spells: list[SpellCard] = spells
 
-    def attack(self, target: CreatureCard) -> dict:
-        if not isinstance(target, CreatureCard):
-            raise TypeError("the target need to be a creature card")
+    def attack(self, target: "CreatureCard | EliteCard") -> dict:
         if self.attack_value < 0 or target.health < 0:
             raise ValueError("The attack or health cannot be negative")
         target.health -= self.attack_value
@@ -25,13 +23,13 @@ class EliteCard(Card, Combatable, Magical):
                 'damage_dealt': self.attack_value, 'combat_type': 'melee'}
 
     def defend(self, incoming_damage: int) -> dict:
-        if self.health_value <= 0:
+        if self.health <= 0:
             raise ValueError("The health cannot be negative")
         if incoming_damage <= 0:
             raise ValueError("The incoming damage cannot be inferior to 1")
         true_damage = incoming_damage - (self.attack_value // 2)
-        self.health_value -= true_damage
-        if self.health_value < 1:
+        self.health -= true_damage
+        if self.health < 1:
             still_alive = False
         else:
             still_alive = True
@@ -41,7 +39,7 @@ class EliteCard(Card, Combatable, Magical):
                 'still_alive': still_alive}
 
     def get_combat_stats(self) -> dict:
-        return {'health': self.health_value,
+        return {'health': self.health,
                 'attack': self.attack_value}
 
     def cast_spell(self, spell_name: str, targets: list[CreatureCard]) -> dict:

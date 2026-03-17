@@ -10,7 +10,7 @@ import random
 class FantasyCardFactory(CardFactory):
     def __init__(self) -> None:
         self.creatures: list[str] = ["Fire Dragon", "Goblin Warrior",
-                                     "Ice wizard"]
+                                     "Ice Wizard"]
         self.spells: list[str] = ["Lightning Bolt", "Healing Potion",
                                   "Fireball"]
         self.artifacts: list[str] = ["Mana Crystal", "Sword of Power",
@@ -56,7 +56,7 @@ class FantasyCardFactory(CardFactory):
         i = 0
         deck = Deck()
         while i < size:
-            type = random.randrange(0, 4)
+            type = random.randrange(1, 4)
             if type == 1:
                 deck.add_card(self.create_creature())
             if type == 2:
