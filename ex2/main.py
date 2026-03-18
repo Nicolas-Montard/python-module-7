@@ -11,7 +11,7 @@ def main() -> None:
     print("- Combatable: ['attack', 'defend', 'get_combat_stats']")
     print("- Magical: ['cast_spell', 'channel_mana', 'get_magic_stats']")
 
-    print("\nPlaying Arcane Warrior (Elite Card):")
+    print("\nPlaying Stone golem (Elite Card):")
     spells = []
     spells.append(SpellCard("Lightning Bolt", 3, "Common", "damage"))
     spells.append(SpellCard("Meteor", 8, "Legendary", "damage"))
