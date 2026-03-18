@@ -3,7 +3,7 @@ from ex3.FantasyCardFactory import FantasyCardFactory
 from ex3.GameEngine import GameEngine
 
 
-def main():
+def main() -> None:
     print("=== DataDeck Game Engine ===")
 
     print("\nConfiguring Fantasy Card Game...")
@@ -21,7 +21,7 @@ def main():
         print(f'Hand: {turn_result["hand"]}')
 
         print('\nTurn execution')
-        print(f'Strategy: AgressiveStrategy')
+        print('Strategy: AgressiveStrategy')
         print(f'Action: {turn_result["actions"]}')
 
         print('\nGame report:')

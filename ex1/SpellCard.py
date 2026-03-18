@@ -47,7 +47,7 @@ class SpellCard(Card):
         return {"card_played": self.name, 'mana_used': self.cost,
                 'effect': self.effect_type}
 
-    def resolve_effect(self, targets: list):
+    def resolve_effect(self, targets: list[CreatureCard]) -> dict:
         if self.effect_type == "damage":
             for target in targets:
                 target.health -= self.cost

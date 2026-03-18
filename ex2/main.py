@@ -3,7 +3,7 @@ from ex0.CreatureCard import CreatureCard
 from ex2.EliteCard import EliteCard
 
 
-def main():
+def main() -> None:
     print("=== DataDeck Ability System ===")
 
     print("\nEliteCard capabilities:")

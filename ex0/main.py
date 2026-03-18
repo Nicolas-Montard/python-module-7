@@ -1,7 +1,7 @@
 from ex0.CreatureCard import CreatureCard
 
 
-def main():
+def main() -> None:
     dragon = CreatureCard("Fire Dragon", 5, "Legendary",  7, 5)
     goblin = CreatureCard("Goblin Warrior", 2, "Common",  2, 1)
     print("=== DataDeck Card Foundation ===")
